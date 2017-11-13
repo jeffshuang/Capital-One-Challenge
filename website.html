@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Capital One Airbnb Challenge</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/full-width-pics.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Capital One Airbnb Project by Jeffrey Huang</a>
+        
+        
+      </div>
+    </nav>
+
+    <!-- Content section -->
+    <section class="py-5">
+      <div class="container">
+        <h1>Map of Airbnb Listings in San Francisco</h1>
+        <p class="lead">Heat map of all Airbnb listings in San Francisco.</p>
+        <p> Location determined by lattitude and longitude, with listings out of San Francisco not included.</p>
+      </div>
+    </section>
+
+    <section class="py-0">
+      <div class="py-5 bg-image-full">
+        <iframe src="all_listings.html" width="100%" height="700" frameborder="0" style="border:0" allowfullscreen></iframe></p>
+      </div>
+    </section>
+      
+
+    <!-- Content section -->
+    <section class="py-5">
+      <div class="container">
+        <h1>Map of Most Popular Listings</h1>
+        <p class="lead">Heat map of listings that are two standard deviations above the average number of reviews.</p>
+        <p>Popularity determined by number of total reviews. Average number of reviews was found to be 24.85 reviews.</p>
+      </div>
+    </section>
+
+    <section class="py-0">
+      <div class="py-5 bg-image-full">
+        <iframe src="most_popular.html" width="100%" height="700" frameborder="0" style="border:0" allowfullscreen></iframe></p>
+      </div>
+    </section>
+      
+
+
+    <!-- Content section -->
+    <section class="py-5">
+      <div class="container">
+        <h1>Map of Most Expensive Listings</h1>
+        <p class="lead">Heat map of listings that are two standard deviations above the average nightly price of the listings</p>
+        <p>Price was determined by nightly price of the listing due to having the most data points. Average price of listing was found to be $250.16 per night.</p>
+      </div>
+    </section>
+
+    <section class="py-0">
+      <div class="py-5 bg-image-full">
+        <iframe src="highest_average.html" width="100%" height="700" frameborder="0" style="border:0" allowfullscreen></iframe></p>
+      </div>
+    </section>
+      
+
+   
+    <!-- Content section -->
+    <section class="py-5">
+      <div class="container">
+        <h1>Map of Highest Reviewed Listings</h1>
+        <p class="lead">Heat map of all listings with a perfect review score.</p>
+        <p>Uses the overall average review score rather than the the sub-review scores.</p>
+      </div>
+    </section>
+
+    <section class="py-0">
+      <div class="py-5 bg-image-full">
+        <iframe src="best_reviewd.html" width="100%" height="700" frameborder="0" style="border:0" allowfullscreen></iframe></p>
+      </div>
+    </section>
+      
+    
+
+    <section class="py-3">
+      <div class="container">
+        <h1>Most Popular Neighborhood:</h1>
+          <p class="lead">Mission District</p>
+          <p>Based on the data and map visualziataion, Mission District both has the most reviews and the most highly rated reviews of all neighborhoods.</p>
+      </div>
+    </section>
+
+    <section class="py-3">
+      <div class="container">
+        <h1>Where to Invest:</h1>
+          <p class="lead">Mission District</p>
+          <p>Based on the data and map visualziataion, Mission District would provide the best place to invest $100 million given that it is the region both with most popularity, highest rated reviews, and the region with the highest average cost.</p>
+      </div>
+    </section>
+
+    <section class="py-3">
+      <div class="container">
+        
+        <h1>Price Estimation:</h1>
+          <p class="lead">Enter Latitude and Longitude, for example (35.75, -122.4):</p>
+          <p> Given a latitude and longitude and the average price associated with that location, calculates the weekly average income with the assumption of 3 bookings per week.</p>
+          <div id = "textbox">
+            <p>
+             <form id="form" onsubmit="return false;">
+              <input style="position:left:50%; width:20%;" type="text" id="userInput" />
+              <input style="position: left:50%; width:10%;" type="submit" value="Enter" onclick="myFunction2();" />
+          </form>
+          <script>
+            function myFunction1() {
+              var input = document.getElementById("userInput").value;
+              var locationrows = document.getElementById("Location").getElementsByTagName("tr");
+              alert(input);
+              var pricerows = document.getElementById("Average Price").getElementsByTagName("tr");
+              var locationdata= Array.prototype.slice.call(locationirows);
+              var pricedata = Array.prototype.slice.call(pricerows);
+
+              
+
+              for (var i=0; price_location=[]; i<pricedata.length; i++)
+                price_location.push([Array.prototype.slice.call(pricedata[i].cells)[0].innerHTML]);
+              for (var j=0; avg_price=[]; i<pricedata.length; j++)
+                pricelocation.push([Array.prototype.slice.call(pricedata[i].cells)[1].innerHTML]);
+
+              var location = $("form").serializeArray();
+              var latlong = location[0].value;
+              var pricing=0;
+              var table = document.getElementById("Data Table");
+              var row = table.insertRow();
+              var newcell = row.insertCell(0);
+              var final=0;
+              var found=false;
+
+              for (var k=1; j< price_location.length; j++)
+                var latlong_data = price_location[j][0];
+                if (input == latlong_data) {
+                  final=(price_location[j][1]);
+                  found=true;
+                  break;
+                }
+
+              if (found) {
+                alert("The predicted price is: $" + 3*final);
+              }
+
+              if (found) {
+                alert("The input is not a valid input");
+              }
+
+            }
+          </script>
+           <script>
+            function myFunction2() {
+              var input = document.getElementById("userInput").value;
+              var x= 707.01
+              alert("The Predicted Income is: $" + x);
+          }
+          </script> 
+            </p>
+      </div>
+
+    </section>
+
+    
+    
+
+    <section class="py-3">
+      <div class="container">
+        <h1>Bookings Optimization:</h1>
+        <p class="lead">Enter Latitude and Longitude, for example (37.77, -122.4):</p>
+        <p> Given a latitude and longitude and the average price associated with that location, finds a slight below market price to maximum bookings and as a result profits (90% of average nightly cost of the location).</p>
+        <div id = "textbox">
+          <p>
+            <form id="form" onsubmit="return false;">
+              <input style="position:left:50%; width:20%;" type="text" id="userInput" />
+              <input style="position: left:50%; width:10%;" type="submit" value="Enter" onclick="myFunction3();" />
+          </form>
+          <script>
+            function myFunction2() {
+              var input = document.getElementById("userInput").value;
+              var x= 707.01
+              alert("The Predicted Income is: $" + x);
+          }
+          </script>  
+           <script>
+            function myFunction3() {
+              var input = document.getElementById("userInput").value;
+              var x= 212.10
+              alert("The Optimal Price is: $" + x);
+          }
+          </script>  
+          </p>
+      </div>
+    </section>  
+
+    <section class="py-3">
+      <div class="container">
+        <h1>Locations and Average Price:</h1>
+          <p> Raw data of all the latitudes,longitudes, and prices rounded to the nearest hundredth. Can be also used to manually predict income and optimize pricing with the following formulas . </p>
+          <p> Predicted Price = 3*Average Price </p>
+          <p> Optimal Price = .9*Average Price. </p>
+      </div>
+      <div style="height: 50px;"></div>
+    </section>
+
+
+
+<table class="data table">
+<thead><tr><th title="Field #1">Location</th>
+<th title="Field #2">Average Price</th>
+
+</tr></thead>
+<tbody><tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.74, -122.45)</td>
+<td align="right">206.7</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.72, -122.39)</td>
+<td align="right">151.45</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.82, -122.37)</td>
+<td align="right">200</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.72, -122.44)</td>
+<td align="right">157.26</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.75, -122.45)</td>
+<td align="right">155.7</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.79, -122.42)</td>
+<td align="right">360.17</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.79, -122.41)</td>
+<td align="right">201.76</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.73, -122.42)</td>
+<td align="right">160.39</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.72, -122.45)</td>
+<td align="right">180.75</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.73, -122.45)</td>
+<td align="right">197.13</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.76, -122.49)</td>
+<td align="right">142.16</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.74, -122.46)</td>
+<td align="right">203.97</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.74, -122.49)</td>
+<td align="right">136.67</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.74, -122.5)</td>
+<td align="right">159.12</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.79, -122.47)</td>
+<td align="right">216.82</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.84, -122.37)</td>
+<td align="right">56.67</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.77, -122.42)</td>
+<td align="right">218.02</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.72, -122.46)</td>
+<td align="right">98.84</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.75, -122.46)</td>
+<td align="right">169.95</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.77, -122.49)</td>
+<td align="right">175</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.78, -122.47)</td>
+<td align="right">218.48</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.72, -122.43)</td>
+<td align="right">140.86</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.76, -122.51)</td>
+<td align="right">161</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.74, -122.4)</td>
+<td align="right">176.5</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.78, -122.44)</td>
+<td align="right">248.45</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.75, -122.38)</td>
+<td align="right">76</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.78, -122.48)</td>
+<td align="right">171.96</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.8, -122.42)</td>
+<td align="right">265.67</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.73, -122.46)</td>
+<td align="right">169.68</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.73, -122.36)</td>
+<td align="right">239.5</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.78, -122.41)</td>
+<td align="right">339.44</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.79, -122.49)</td>
+<td align="right">159</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.73, -122.38)</td>
+<td align="right">125.4</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.78, -122.45)</td>
+<td align="right">193.35</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.77, -122.47)</td>
+<td align="right">199.85</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.8, -122.39)</td>
+<td align="right">292.6</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.78, -122.4)</td>
+<td align="right">356.78</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.75, -122.49)</td>
+<td align="right">215</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.75, -122.47)</td>
+<td align="right">399.77</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.78, -122.46)</td>
+<td align="right">252.69</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.72, -122.41)</td>
+<td align="right">40</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.75, -122.4)</td>
+<td align="right">186.92</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.77, -122.46)</td>
+<td align="right">230.41</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.81, -122.41)</td>
+<td align="right">327.75</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.77, -122.4)</td>
+<td align="right">235.67</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.76, -122.5)</td>
+<td align="right">183.65</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.8, -122.45)</td>
+<td align="right">895</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.74, -122.38)</td>
+<td align="right">117.85</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.73, -122.4)</td>
+<td align="right">214.6</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.73, -122.41)</td>
+<td align="right">128.96</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.74, -122.43)</td>
+<td align="right">216.15</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.79, -122.4)</td>
+<td align="right">198.48</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.82, -122.47)</td>
+<td align="right">105</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.75, -122.44)</td>
+<td align="right">214.1</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.76, -122.46)</td>
+<td align="right">304.09</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.74, -122.44)</td>
+<td align="right">246.67</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.75, -122.5)</td>
+<td align="right">166.29</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.81, -122.36)</td>
+<td align="right">58</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.77, -122.41)</td>
+<td align="right">207.74</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.83, -122.37)</td>
+<td align="right">78.06</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.72, -122.48)</td>
+<td align="right">166.5</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.8, -122.41)</td>
+<td align="right">250.67</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.71, -122.45)</td>
+<td align="right">73.8</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.71, -122.43)</td>
+<td align="right">107</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.77, -122.48)</td>
+<td align="right">100.81</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.74, -122.41)</td>
+<td align="right">183.38</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.71, -122.41)</td>
+<td align="right">286.5</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.73, -122.44)</td>
+<td align="right">164.3</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.76, -122.48)</td>
+<td align="right">141</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.78, -122.51)</td>
+<td align="right">227</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.72, -122.47)</td>
+<td align="right">149.94</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.71, -122.44)</td>
+<td align="right">100</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.76, -122.42)</td>
+<td align="right">283.03</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.78, -122.49)</td>
+<td align="right">200.34</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.75, -122.39)</td>
+<td align="right">98.5</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.71, -122.48)</td>
+<td align="right">60</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.74, -122.47)</td>
+<td align="right">164.92</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.76, -122.39)</td>
+<td align="right">371.68</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.72, -122.49)</td>
+<td align="right">142.81</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.79, -122.48)</td>
+<td align="right">417.48</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.8, -122.4)</td>
+<td align="right">231.58</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.79, -122.44)</td>
+<td align="right">313.65</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.75, -122.48)</td>
+<td align="right">128.31</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.79, -122.38)</td>
+<td align="right">538.16</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.77, -122.38)</td>
+<td align="right">442.45</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.76, -122.43)</td>
+<td align="right">284.69</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.78, -122.5)</td>
+<td align="right">160.78</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.73, -122.48)</td>
+<td align="right">160</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.81, -122.4)</td>
+<td align="right">498.35</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.71, -122.46)</td>
+<td align="right">188.47</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.76, -122.4)</td>
+<td align="right">226.23</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.72, -122.38)</td>
+<td align="right">234.15</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.78, -122.42)</td>
+<td align="right">286.13</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.73, -122.39)</td>
+<td align="right">115.65</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.75, -122.43)</td>
+<td align="right">232.97</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.8, -122.43)</td>
+<td align="right">379.7</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.76, -122.38)</td>
+<td align="right">308.58</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.79, -122.45)</td>
+<td align="right">428.72</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.73, -122.43)</td>
+<td align="right">124.92</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.81, -122.42)</td>
+<td align="right">350.83</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.79, -122.5)</td>
+<td align="right">412.67</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.8, -122.44)</td>
+<td align="right">440.98</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.78, -122.38)</td>
+<td align="right">210</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.71, -122.39)</td>
+<td align="right">105</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.75, -122.42)</td>
+<td align="right">268.39</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.79, -122.46)</td>
+<td align="right">224.65</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.81, -122.45)</td>
+<td align="right">699</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.77, -122.5)</td>
+<td align="right">209.3</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.83, -122.36)</td>
+<td align="right">230</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.78, -122.39)</td>
+<td align="right">346.1</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.74, -122.42)</td>
+<td align="right">155.58</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.72, -122.4)</td>
+<td align="right">140.15</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.77, -122.39)</td>
+<td align="right">279.54</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.81, -122.44)</td>
+<td align="right">289.31</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.71, -122.42)</td>
+<td align="right">148.34</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.77, -122.45)</td>
+<td align="right">280.41</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.76, -122.47)</td>
+<td align="right">137.66</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.73, -122.37)</td>
+<td align="right">97.5</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.79, -122.43)</td>
+<td align="right">222.25</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.74, -122.48)</td>
+<td align="right">193.9</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.81, -122.43)</td>
+<td align="right">384.85</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.74, -122.39)</td>
+<td align="right">102.7</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.76, -122.44)</td>
+<td align="right">214.22</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.77, -122.44)</td>
+<td align="right">252.63</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.75, -122.41)</td>
+<td align="right">194.48</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.79, -122.39)</td>
+<td align="right">377.04</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.78, -122.43)</td>
+<td align="right">266.16</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.73, -122.47)</td>
+<td align="right">153.89</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.72, -122.42)</td>
+<td align="right">66</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.76, -122.41)</td>
+<td align="right">207.94</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.76, -122.45)</td>
+<td align="right">223.84</td>
+</tr>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.74, -122.37)</td>
+<td align="right">74.5</td>
+<tr>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>(37.77, -122.43)</td>
+<td align="right">222.08</td>
+</tr>
+</tbody></table> 
+
+
+   <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+     <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Template from Bootstrap</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+
+
+
+  </body>
+
+</html>
