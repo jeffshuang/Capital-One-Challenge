@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Capital One Airbnb Challenge</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/full-width-pics.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Capital One Airbnb Project by Jeffrey Huang</a>
+        
+        
+      </div>
+    </nav>
+
+    <!-- Content section -->
+    <section class="py-5">
+      <div class="container">
+        <h1>Map of Airbnb Listings in San Francisco</h1>
+        <p class="lead">Heat map of all Airbnb listings in San Francisco.</p>
+        <p> Location determined by lattitude and longitude, with listings out of San Francisco not included.</p>
+      </div>
+    </section>
+
+       <!-- Image Section - set the background image for the header in the line below -->
+    <section class="py-5 bg-image-full" style="background-image: url('./all_listings.png'); background-size: cover;">
+      <!-- Put anything you want here! There is just a spacer below for demo purposes! -->
+      <div style="height: 700px;"></div>
+    </section>
+
+
+    <!-- Content section -->
+    <section class="py-5">
+      <div class="container">
+        <h1>Map of Most Popular Listings</h1>
+        <p class="lead">Heat map of listings that are two standard deviations above the average number of reviews.</p>
+        <p>Popularity determined by number of total reviews. Average number of reviews was found to be 24.85 reviews.</p>
+      </div>
+    </section>
+
+       <!-- Image Section - set the background image for the header in the line below -->
+    <section class="py-5 bg-image-full" style="background-image: url('./most_popular.png'); background-size: cover;">
+      <!-- Put anything you want here! There is just a spacer below for demo purposes! -->
+      <div style="height: 700px;"></div>
+    </section>
+
+
+    <!-- Content section -->
+    <section class="py-5">
+      <div class="container">
+        <h1>Map of Most Expensive Listings</h1>
+        <p class="lead">Heat map of listings that are two standard deviations above the average nightly price of the listings</p>
+        <p>Price was determined by nightly price of the listing due to having the most data points. Average price of listing was found to be $250.16 per night.</p>
+      </div>
+    </section>
+
+         <!-- Image Section - set the background image for the header in the line below -->
+    <section class="py-5 bg-image-full" style="background-image: url('./highest_average.png');">
+      <!-- Put anything you want here! There is just a spacer below for demo purposes! -->
+      <div style="height: 700px;"></div>
+    </section>
+
+   
+    <!-- Content section -->
+    <section class="py-5">
+      <div class="container">
+        <h1>Map of Highest Reviewed Listings</h1>
+        <p class="lead">Heat map of all listings with a perfect review score.</p>
+        <p>Uses the overall average review score rather than the the sub-review scores.</p>
+      </div>
+    </section>
+
+    <section class="py-5 bg-image-full" style="background-image: url('./best_reviewed.png');">
+      <!-- Put anything you want here! There is just a spacer below for demo purposes! -->
+      <div style="height: 700px;"></div>
+    </section>
+
+
+    <section class="py-5">
+      <div class="container">
+        <h1>Most Popular Neighborhood:</h1>
+        <p class="lead">Mission District</p>
+        <p>Based on the data and map visualziataion, Mission District both has the most reveiws and the most highly rated reviews of all neighborhoods.</p>
+        <h1>Price Estimation:</h1>
+          <p class="lead">Enter Lattitude and Longitude:</p>
+          <div id = "textbox">
+            <p>
+              <input type = 'location' value = ''><br>
+              <input type ="submit" value="Enter">
+            </p>
+
+          </div> 
+        <h1>Bookings Optimization:</h1>
+        <p class="lead">Enter Lattitude and Longitude:</p>
+        <div id = "textbox">
+          <p>
+            <input type = 'location' value = ''>
+            <input type ="submit" value="Enter">
+            <p >value </p>
+          </p>
+        </div> 
+      </div>
+    </section>
+
+  
+  
+      
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+     <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Template from Bootstrap</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+
+
+
+  </body>
+
+</html>
